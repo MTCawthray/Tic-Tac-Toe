@@ -12,8 +12,9 @@ header {
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #f4d75e;
+background-color: #7c7b89;
 height: 10em;
+border-bottom: 5px dotted #e9723d;
 }
 
 h1 {
@@ -34,6 +35,7 @@ main {
   height: 100%;
   padding: 0 2em 2em 2em;
   background-color: #f1e4de;
+  border-top: 5px dotted #0b7fab;
 }
 
 section {
@@ -128,7 +130,7 @@ border-right: none;
   align-items: center;
   height: 6em;
   width: 23em;
-  background-color: #f1e4de;
+  background-color: white;
   border-radius: 180px / 52px;
   box-shadow: 3px 3px 15px black;
 }
@@ -148,6 +150,7 @@ border-right: none;
 .winner-declaration {
   background: none;
   margin: 0 2em 1em 2em;
+  border: none;
 }
 
 .left-section {
