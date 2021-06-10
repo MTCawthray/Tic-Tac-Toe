@@ -1,0 +1,113 @@
+
+*, *:after, *:before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+ * {
+   /* border: 0.5px solid Red; */
+ }
+
+header {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: yellow;
+height: 10em;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: xxx-large;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  height: 35em;
+  padding: 2em;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 3px 3px 10px grey;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  height: 12em;
+  width: 12em;
+  background: none;
+  border: 4px solid black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-section {
+  display: Flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: none;
+}
+
+.a-row {
+  display: flex;
+}
+
+.a1{
+border-top: none;
+border-left: none;
+}
+
+.a2{
+border-top: none;
+}
+
+.a3{
+border-top: none;
+border-right: none;
+}
+
+.b-row {
+  display: flex;
+}
+
+.b1 {
+  border-left: none;
+}
+
+.b3 {
+  border-right: none;
+}
+
+.c-row {
+  display: flex;
+}
+
+.c1{
+  border-left: none;
+  border-bottom: none;
+}
+
+.c2{
+  border-bottom: none;
+}
+
+.c3{
+  border-right: none;
+  border-bottom: none;
+}
