@@ -17,8 +17,9 @@ height: 10em;
 }
 
 h1 {
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Luckiest Guy', cursive;
   font-size: xxx-large;
+  padding-top: .25em;
 }
 
 h2 {
