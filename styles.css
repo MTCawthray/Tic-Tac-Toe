@@ -160,7 +160,12 @@ border-right: none;
 .left-section {
   width: 25%;
   margin-top: 5em;
-  background-color: #e9723d;
+  background:
+    radial-gradient(
+      circle,
+      #f1e4de,
+      #e9723d
+    );
 }
 
 .center-section {
@@ -170,8 +175,22 @@ border-right: none;
 .right-section {
   width: 25%;
   margin-top: 5em;
-  background-color: #0b7fab;
+  background:
+    radial-gradient(
+      circle,
+      #f1e4de,
+      #0b7fab
+    );
 }
+
+.o-icon {
+  margin-top: 40%;
+}
+
+.x-icon {
+  margin-top: 150%;
+}
+
 .hidden {
   display: none!important;
 }
