@@ -1,4 +1,3 @@
-
 class Game {
   constructor(player1, player2) {
     this.player1 = player1;
@@ -16,21 +15,35 @@ class Game {
     // and reassign the global currentGame variable to it.
   }
 
-  checkGame() {
-    //This needs to check the current player's positions against the win scenarios Variable
+  checkGame(player) {
+    var winScenarios = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ];
     for (var i = 0; i < winScenarios.length; i++) {
-      if (winScenarios[i].includes(/*player's positions*/))
-      //add 1 to player's wins in player instance
-      //invoke save to local saveToStorage with win count
-      //invoke clearGame method
-    }
-    // if not a win, continue with game
-    // if no more positions, decalare a draw
-  }
+      if (player.positions.includes(winScenarios[i][0])
+        && player.positions.includes(winScenarios[i][1])
+        && player.positions.includes(winScenarios[i][2])){
+          player.wins++;
+          player.saveToStorage();
+          //somehow announce that the player has won
+          clearGame();
+        }
+    };
+  //   // if not a win, continue with game
+  //   // if no more positions, decalare a draw
+  // }
 
   clearGame() {
+    //set time out
     currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
-    gameBoard.innerHTML = '
+    gameBoard.innerHTML = `
     <div class="a-row">
       <button type="button" class="a1" id="a1" name="">
         <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
@@ -72,6 +85,6 @@ class Game {
         <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
         <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
       </button>
-    </div>'
+    </div>`
   }
 }
