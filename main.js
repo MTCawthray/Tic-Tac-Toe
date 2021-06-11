@@ -8,17 +8,26 @@ var centerRightBtn = document.querySelector('#b3');
 var bottomLeftBtn = document.querySelector('#c1');
 var bottomCenterBtn = document.querySelector('#c2');
 var bottomRightBtn = document.querySelector('#c3');
-var gameBoard = document.querySelector('.game-board');
-var currentPlayerDisplay = document.querySelector('.current-player');
+var gameBoard = document.querySelector('#gameBoard');
+var currentPlayerDisplay = document.querySelector('#currentPlayer');
 
-var winScenarios = [];
+var winScenarios = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
 var currentMove;
-var currentPlayer;
+var currentGame;
 
 
 //------ Event Listeners -------//
 window.addEventListener('load', function(event) {
-  clearGame(event)});
+  newGame(event)});
 topLeftBtn.addEventListener('click', '');
 topCenterBtn.addEventListener('click', '');
 topRightBtn.addEventListener('click', '');
@@ -34,7 +43,20 @@ bottomRightBtn.addEventListener('click', '');
 
 
 //-------- Functions --------//
-clearGame(event) {
+function takeTurn() {
+
+
+
+}
+
+function newGame(event) {
   event.preventDefault();
-  currentPlayerDisplay.innerText = 'New Game! X is up.';
+  var player1 = new Player(1, x);
+  var player2 = new Player(2, o);
+  currentGame = new Game(player1, player2);
+  currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
+}
+
+function switchPlayer() {
+
 }
