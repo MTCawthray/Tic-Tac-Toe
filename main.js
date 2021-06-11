@@ -12,16 +12,16 @@ var gameBoard = document.querySelector('#gameBoard');
 var currentPlayerDisplay = document.querySelector('#currentPlayer');
 
 var winScenarios = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
   [1, 4, 7],
   [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7]
 ];
-var currentMove;
+var currentMove = 0;
 var currentGame;
 
 
@@ -44,7 +44,19 @@ bottomRightBtn.addEventListener('click', '');
 
 //-------- Functions --------//
 function takeTurn() {
-
+  currentMove++;
+  console.log("current move --> "currentMove);
+  if (currentMove === 1 || 3 || 5 || 7 || 9) {
+    // remove hidden class from the x image of button clicked and disable button.
+    player1.positions.push(/* button name or value */);
+    currentGame.updateBoard();
+    currentGame.checkGame();
+  } else {
+    // remove hidden class from the o image of button clicked and disable button.
+    player2.positions.push(/* button name or value */);
+    currentGame.updateBoard();
+    currentGame.checkGame();
+  }
 
 
 }
@@ -55,8 +67,4 @@ function newGame(event) {
   var player2 = new Player(2, o);
   currentGame = new Game(player1, player2);
   currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
-}
-
-function switchPlayer() {
-
 }
