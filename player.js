@@ -9,7 +9,6 @@ class Player {
   saveToStorage() {
     var stringifiedWins = JSON.stringify(this.wins);
     localStorage.setItem(`player${this.id}WinCount`, stringifiedWins);
-    //account for two players with key
   }
 
   retrieveWinsFromStorage() {
