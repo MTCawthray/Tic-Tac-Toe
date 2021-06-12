@@ -11,6 +11,8 @@ var bottomLeftBtn = document.querySelector('#c1');
 var bottomCenterBtn = document.querySelector('#c2');
 var bottomRightBtn = document.querySelector('#c3');
 var gameBoard = document.querySelector('#gameBoard');
+var player1WinCount = document.querySelector('#player1WinCount');
+var player2WinCount = document.querySelector('#player2WinCount');
 var currentPlayerDisplay = document.querySelector('#currentPlayer');
 
 var currentGame;
@@ -41,54 +43,11 @@ function makeMove(){
 function makeNewGame(event) {
   event.preventDefault();
   currentGame = new Game();
-  currentGame.player1 = new Player('1', 'x');
-  currentGame.player2 = new Player('2', 'o');
+  makeNewPlayers();
+  updateWinDisplay();
   currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
-  currentGame.player1.retrieveWinsFromStorage();
-  currentGame.player2.retrieveWinsFromStorage();
-  // gameBoard.innerHTML = `
-  //   <div class="a-row">
-  //     <button type="button" class="a1" id="a1" name="1">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="a2" id="a2" name="2">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="a3" id="a3" name="3">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //   </div>
-  //   <div class="b-row">
-  //     <button type="button" class="b1" id="b1" name="4">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="b2" id="b2" name="5">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="b3" id="b3" name="6">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //   </div>
-  //   <div class="c-row">
-  //     <button type="button" class="c1" id="c1" name="7">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="c2" id="c2" name="8">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //     <button type="button" class="c3" id="c3" name="9">
-  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-  //     </button>
-  //   <!-- </div>`
+  console.log("player 1 ", currentGame.player1);
+  console.log("player 2 ", currentGame.player2);
 }
 
 function showX(event) {
@@ -101,4 +60,16 @@ function showO(event) {
   if(event.target.classList.contains('o-icon')) {
     event.target.classList.remove('hidden');
   }
+}
+function updateWinDisplay() {
+  debugger
+  player1WinCount.innerText = `Wins:${currentGame.player1.wins}`
+  player2WinCount.innerText = `Wins:${currentGame.player2.wins}`
+}
+
+function makeNewPlayers() {
+  currentGame.player1 = new Player('1', 'x');
+  currentGame.player1.retrieveWinsFromStorage();
+  currentGame.player2 = new Player('2', 'o');
+  currentGame.player2.retrieveWinsFromStorage();
 }
