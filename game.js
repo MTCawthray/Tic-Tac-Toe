@@ -5,10 +5,6 @@ class Game {
     this.currentMove = 0;
   }
 
-  switchPlayer() {
-
-  }
-
   updateBoard() {
     var currentGame = gameBoard.innerHTML;
     // this needs to check the current condition of the gameBoard
@@ -33,6 +29,9 @@ class Game {
         player.wins++;
         player.saveToStorage();
         currentPlayerDisplay.innerText = `Player ${player.id} Wins!`
+        setTimeout(function(){currentGame.clearGame(); }, 3000);
+      } else if (this.currentMove >= 9) {
+        currentPlayerDisplay.innerText = `Draw!`;
         setTimeout(function(){currentGame.clearGame(); }, 3000);
         }
     };
@@ -84,7 +83,7 @@ class Game {
           <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
           <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
         </button>
-      </div>`;
+      <!-- </div>`
   }
 
 }
