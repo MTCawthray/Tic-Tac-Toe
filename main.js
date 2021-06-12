@@ -17,50 +17,28 @@ var currentGame;
 
 //------ Event Listeners -------//
 window.addEventListener('load', function(event) {
-  newGame(event)});
-// gameBoard.addEventListener('click' function(event) {
-//
-// });
-topLeftBtn.addEventListener('click', function(event) {
-  takeTurn(event)});
-topCenterBtn.addEventListener('click', takeTurn);
-topRightBtn.addEventListener('click', takeTurn);
-centerLeftBtn.addEventListener('click', takeTurn);
-centerBtn.addEventListener('click', takeTurn);
-centerRightBtn.addEventListener('click', takeTurn);
-bottomLeftBtn.addEventListener('click', takeTurn);
-bottomCenterBtn.addEventListener('click', takeTurn);
-bottomRightBtn.addEventListener('click', takeTurn);
+  makeNewGame(event)});
+
+topLeftBtn.addEventListener('click', makeMove);
+topCenterBtn.addEventListener('click', makeMove);
+topRightBtn.addEventListener('click', makeMove);
+centerLeftBtn.addEventListener('click', makeMove);
+centerBtn.addEventListener('click', makeMove);
+centerRightBtn.addEventListener('click', makeMove);
+bottomLeftBtn.addEventListener('click', makeMove);
+bottomCenterBtn.addEventListener('click', makeMove);
+bottomRightBtn.addEventListener('click', makeMove);
 
 
 
 
 
 //-------- Functions --------//
-function takeTurn(event) {
-debugger
-  currentGame.currentMove++;
-  console.log("in takeTurn move counter-->", currentGame.currentMove);
-  if (currentGame.currentMove === 1 || 3 || 5 || 7 || 9) {
-    var position = parseInt(event.target.name);
-    event.target.disabled = true;
-    currentGame.player1.positions.push(position);
-    currentGame.checkGame(currentGame.player1);
-    // currentGame.updateBoard();
-    // remove hidden class from the x image of button clicked and disable button.
-    // showX();
-  } else {
-    var position = parseInt(event.target.name);
-    event.target.disabled = true;
-    currentGame.player2.positions.push(position);
-    currentGame.checkGame(currentGameplayer2);
-    // currentGame.updateBoard();
-    // remove hidden class from the o image of button clicked and disable button.
-    // showO();
-  }
+function makeMove(){
+  currentGame.takeTurn();
 }
 
-function newGame(event) {
+function makeNewGame(event) {
   event.preventDefault();
   currentGame = new Game();
   currentGame.player1 = new Player('1', 'x');
@@ -68,6 +46,49 @@ function newGame(event) {
   currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
   currentGame.player1.retrieveWinsFromStorage();
   currentGame.player2.retrieveWinsFromStorage();
+  // gameBoard.innerHTML = `
+  //   <div class="a-row">
+  //     <button type="button" class="a1" id="a1" name="1">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="a2" id="a2" name="2">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="a3" id="a3" name="3">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //   </div>
+  //   <div class="b-row">
+  //     <button type="button" class="b1" id="b1" name="4">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="b2" id="b2" name="5">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="b3" id="b3" name="6">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //   </div>
+  //   <div class="c-row">
+  //     <button type="button" class="c1" id="c1" name="7">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="c2" id="c2" name="8">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //     <button type="button" class="c3" id="c3" name="9">
+  //       <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
+  //       <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
+  //     </button>
+  //   <!-- </div>`
 }
 
 function showX(event) {
