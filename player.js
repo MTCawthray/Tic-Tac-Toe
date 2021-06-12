@@ -16,4 +16,5 @@ class Player {
     var parsedWins = JSON.parse(retrievedWins);
     this.wins = parsedWins;
   }
+
 };

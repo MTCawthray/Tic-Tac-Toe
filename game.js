@@ -6,7 +6,6 @@ class Game {
   }
 
   takeTurn() {
-    debugger
     this.currentMove++;
     if (this.currentMove % 2 !== 0) {
       console.log("in takeTurn if statement move counter-->", this.currentMove);
@@ -18,7 +17,7 @@ class Game {
       // remove hidden class from the x image of button clicked and disable button.
       // showX();
     } else {
-      console.log("in takeTurn if statement move counter-->", currentGame.currentMove);
+      console.log("in takeTurn else statement move counter-->", currentGame.currentMove);
       var position = parseInt(event.target.name);
       event.target.disabled = true;
       this.player2.positions.push(position);
