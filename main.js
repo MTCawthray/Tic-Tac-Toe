@@ -61,8 +61,16 @@ function showO(event) {
     event.target.classList.remove('hidden');
   }
 }
+
+function updateCurrentPlayerDisplay() {
+  if (currentGame.currentMove % 2 !== 0) {
+    currentPlayerDisplay.innerText = 'Player 2 Is Up'
+  } else {
+    currentPlayerDisplay.innerText = 'Player 1 Is Up'
+  }
+}
+
 function updateWinDisplay() {
-  debugger
   player1WinCount.innerText = `Wins:${currentGame.player1.wins}`
   player2WinCount.innerText = `Wins:${currentGame.player2.wins}`
 }

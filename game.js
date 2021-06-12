@@ -35,6 +35,7 @@ class Game {
   }
 
   checkGame(player) {
+    updateCurrentPlayerDisplay();
     var winScenarios = [
       [1, 2, 3],
       [4, 5, 6],
@@ -52,12 +53,13 @@ class Game {
         player.wins++;
         player.saveToStorage();
         console.log("inside check game method/ showing player -->", player);
-        currentPlayerDisplay.innerText = `Player ${player.id} Wins!`
+        currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else if (this.currentMove >= 9) {
         currentPlayerDisplay.innerText = `Draw!`;
         setTimeout(function(){currentGame.clearGame(); }, 3000);
-        }
+      } else {
+      }
     };
   }
 
