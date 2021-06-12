@@ -10,8 +10,9 @@ class Game {
   }
 
   updateBoard() {
+    var currentGame = gameBoard.innerHTML;
     // this needs to check the current condition of the gameBoard
-    // and reassign the global currentGame variable to it.
+    // and reassign the currentGame variable to it.
   }
 
   checkGame(player) {
@@ -27,12 +28,12 @@ class Game {
     ];
     for (var i = 0; i < winScenarios.length; i++) {
       if (player.positions.includes(winScenarios[i][0])
-        && player.positions.includes(winScenarios[i][1])
-        && player.positions.includes(winScenarios[i][2])){
-          player.wins++;
-          player.saveToStorage();
-          //somehow announce that the player has won
-          currentGame.clearGame();
+      && player.positions.includes(winScenarios[i][1])
+      && player.positions.includes(winScenarios[i][2])) {
+        player.wins++;
+        player.saveToStorage();
+        currentPlayerDisplay.innerText = `Player ${player.id} Wins!`
+        setTimeout(function(){currentGame.clearGame(); }, 3000);
         }
     };
   //   // if not a win, continue with game
@@ -40,7 +41,6 @@ class Game {
   }
 
   clearGame() {
-    //set time out
     currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
     gameBoard.innerHTML = `
       <div class="a-row">
@@ -86,4 +86,5 @@ class Game {
         </button>
       </div>`;
   }
+
 }
