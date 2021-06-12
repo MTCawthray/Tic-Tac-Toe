@@ -156,10 +156,14 @@ border-right: none;
   margin: 0 2em 1em 2em;
   border: none;
 }
-
-.left-section {
+.left-section, .right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 25%;
   margin-top: 5em;
+}
+.left-section {
   background:
     radial-gradient(
       circle,
@@ -173,22 +177,12 @@ border-right: none;
 }
 
 .right-section {
-  width: 25%;
-  margin-top: 5em;
   background:
     radial-gradient(
       circle,
       #f1e4de,
       #0b7fab
     );
-}
-
-.o-icon {
-  margin-top: 85%;
-}
-
-.x-icon {
-  margin-top: 150%;
 }
 
 .hidden {
