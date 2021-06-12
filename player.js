@@ -8,12 +8,12 @@ class Player {
 
   saveToStorage() {
     var stringifiedWins = JSON.stringify(this.wins);
-    localStorage.setItem('winCount', stringifiedWins);
+    localStorage.setItem(`player${this.id}WinCount`, stringifiedWins);
     //account for two players with key
   }
 
   retrieveWinsFromStorage() {
-    var retrievedWins = localStorage.getItem('winCount');
+    var retrievedWins = localStorage.getItem(`player${this.id}WinCount`);
     var parsedWins = JSON.parse(retrievedWins);
     this.wins = parsedWins;
   }
