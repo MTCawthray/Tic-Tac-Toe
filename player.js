@@ -6,10 +6,6 @@ class Player {
     this.wins = 0;
   }
 
-  takeTurn() {
-    //
-  }
-
   saveToStorage() {
     var stringifiedWins = JSON.stringify(this.wins);
     localStorage.setItem('winCount', stringifiedWins);
