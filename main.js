@@ -14,11 +14,20 @@ gameBoard.addEventListener('click', function(event) {
   makeMove(event)});
 
 //-------- Functions --------//
-function makeMove(event){
+function makeMove(event) {
   event.target.disabled = true;
+  var position = event.target
   var positionName = parseInt(event.target.name);
   currentGame.takeTurn(positionName);
-  // showX(event);
+  showIcon(position);
+}
+
+function showIcon(position) {
+  if (currentGame.currentMove % 2 !== 0) {
+    position.innerHTML = `<img class="x-icon" id="xIcon" src="./assets/X-icon.png" alt="X image" />`
+  } else {
+    position.innerHTML = `<img class="o-icon" id="oIcon" src="./assets/O-icon.png" alt="O image" />`
+  }
 }
 
 function makeNewGame() {
@@ -30,7 +39,7 @@ function makeNewGame() {
 
 function showX(event) {
   var positionID = event.target.id;
-  var position = document.querySelector(positionID);
+  var position = document.querySelector(`${positionID}`);
   position.innerHTML = `<img class="x-icon" id="xIcon" src="./assets/X-icon.png" alt="X image" />`
   }
 
