@@ -55,22 +55,6 @@ class Game {
   clearGame() {
     makeNewGame();
     showNewGame();
-    gameBoard.innerHTML = `
-    <div class="a-row">
-      <button type="button" class="a1" id="a1" name="1"></button>
-      <button type="button" class="a2" id="a2" name="2"></button>
-      <button type="button" class="a3" id="a3" name="3"></button>
-    </div>
-    <div class="b-row">
-      <button type="button" class="b1" id="b1" name="4"></button>
-      <button type="button" class="b2" id="b2" name="5"></button>
-      <button type="button" class="b3" id="b3" name="6"></button>
-    </div>
-    <div class="c-row">
-      <button type="button" class="c1" id="c1" name="7"></button>
-      <button type="button" class="c2" id="c2" name="8"></button>
-      <button type="button" class="c3" id="c3" name="9"></button>
-    </div>
-    `;
+    refreshGameBoard();
   }
 }
