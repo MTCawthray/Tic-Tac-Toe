@@ -1,18 +1,18 @@
 
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
 }
- * {
-   /* border: 0.5px solid Red; */
- }
 
 header {
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #7c7b89;
+background-color: #f1f1f1;
+background-image: url(./assets/background.png);
 height: 10em;
 border-bottom: 5px dotted #e9723d;
 }
@@ -23,13 +23,12 @@ h1 {
   padding-top: .25em;
 }
 
-h2, p {
+h2,
+p {
   margin: 0 0 1em 0;
   font-family: 'Raleway', sans-serif;
   font-size: xx-large;
 }
-
-
 
 main {
   display: flex;
@@ -68,64 +67,46 @@ button {
   border: 4px solid black;
 }
 
- img {
+img {
    pointer-events: none;
 }
 
 .middle-section {
   display: Flex;
   flex-direction: column;
-  border: none;
+  border: 0;
   box-shadow: none;
-  padding-top: none;
+  padding-top: 0;
 }
 
-.a-row {
-  display: flex;
-}
-
-.a1 {
-border-top: none;
-border-left: none;
-}
-
-.a2 {
-border-top: none;
-}
-
-.a3 {
-border-top: none;
-border-right: none;
-}
-
-.b-row {
-  display: flex;
-}
-
-.b1 {
-  border-left: none;
-}
-
-.b3 {
-  border-right: none;
-}
-
+.a-row,
+.b-row,
 .c-row {
   display: flex;
 }
 
-.c1 {
-  border-left: none;
-  border-bottom: none;
+.a1,
+.a2,
+.a3 {
+  border-top: 0;
 }
 
-.c2 {
-  border-bottom: none;
+.a3,
+.b3,
+.c3  {
+  border-right: 0;
 }
 
+.c1,
+.c2,
 .c3 {
-  border-right: none;
-  border-bottom: none;
+  border-bottom: 0;
+}
+
+.a1,
+.b1,
+.c1 {
+  border-left: 0;
 }
 
 .title-background {
@@ -139,31 +120,27 @@ border-right: none;
   box-shadow: 3px 3px 15px black;
 }
 
-.blue {
+.blue-text {
   color: #0b7fab;
 }
 
-.grey {
+.grey-text {
   color: #7c7b89;
 }
 
-.orange {
+.orange-text {
   color: #e9723d;
 }
 
-.winner-declaration {
-  background: none;
-  margin: 0 2em 1em 2em;
-  border: none;
-}
-
-.left-section, .right-section {
+.left-section,
+.right-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 25%;
   margin-top: 5em;
 }
+
 .left-section {
   background:
     radial-gradient(
@@ -171,6 +148,12 @@ border-right: none;
       #f1e4de,
       #e9723d
     );
+}
+
+.winner-declaration {
+  background: none;
+  margin: 0 2em 1em 2em;
+  border: none;
 }
 
 .center-section {
