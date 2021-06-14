@@ -82,6 +82,10 @@ function showPlayerWin(winner) {
   currentPlayerDisplay.innerText = `PLAYER ${winner} WINS!`
 };
 
+function togglePointer() {
+  gameBoard.classList.toggle('pointer-disabled');
+}
+
 function updateCurrentPlayerDisplay() {
   if (currentGame.currentMove >= 9) {
     showDraw();
