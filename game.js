@@ -3,7 +3,7 @@ class Game {
     this.player1 = {};
     this.player2 = {};
     this.currentMove = 0;
-  }
+  };
 
   takeTurn(position) {
     this.currentMove++;
@@ -12,20 +12,21 @@ class Game {
       this.checkGame(this.player1);
     } else {
       var position = parseInt(event.target.name);
-      this.player2.positions.push(position);
-      this.checkGame(this.player2);
-    }
-  }
+        this.player2.positions.push(position);
+        this.checkGame(this.player2);
+    };
+  };
 
   makeNewPlayers() {
     currentGame.player1 = new Player('1', 'x');
     currentGame.player1.retrieveWinsFromStorage();
     currentGame.player2 = new Player('2', 'o');
     currentGame.player2.retrieveWinsFromStorage();
-  }
+  };
 
   checkGame(player) {
     updateCurrentPlayerDisplay();
+    var winner = player.id;
     var winScenarios = [
       [1, 2, 3],
       [4, 5, 6],
@@ -42,62 +43,19 @@ class Game {
       && player.positions.includes(winScenarios[i][2])) {
         player.wins++;
         player.saveToStorage();
-        currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
+        showPlayerWin(winner);
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else if (this.currentMove >= 9) {
-        currentPlayerDisplay.innerText = `Draw!`;
+        updateCurrentPlayerDisplay();
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else {
-      }
+      };
     };
-  }
+  };
 
   clearGame() {
     makeNewGame();
-    currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
-    gameBoard.innerHTML = `
-    <div class="a-row">
-      <button type="button" class="a1" id="a1" name="1">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="a2" id="a2" name="2">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="a3" id="a3" name="3">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-    </div>
-    <div class="b-row">
-      <button type="button" class="b1" id="b1" name="4">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="b2" id="b2" name="5">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="b3" id="b3" name="6">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-    </div>
-    <div class="c-row">
-      <button type="button" class="c1" id="c1" name="7">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="c2" id="c2" name="8">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-      <button type="button" class="c3" id="c3" name="9">
-        <img class="x-icon hidden" id="xIcon" src="./assets/X-icon.png" alt="X image" />
-        <img class="o-icon hidden" id="oIcon" src="./assets/O-icon.png" alt="O image" />
-      </button>
-    </div>`;
-  }
-
-}
+    showNewGame();
+    refreshGameBoard();
+  };
+};
