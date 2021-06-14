@@ -23,6 +23,7 @@ class Game {
       && player.positions.includes(winScenarios[i][1])
       && player.positions.includes(winScenarios[i][2])) {
         player.wins++;
+        togglePointer();
         player.saveToStorage();
         showPlayerWin(winner);
         setTimeout(function(){currentGame.clearGame(); }, 3000);
@@ -34,6 +35,7 @@ class Game {
     makeNewGame();
     showNewGame();
     refreshGameBoard();
+    togglePointer();
   };
 
 
