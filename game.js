@@ -3,7 +3,7 @@ class Game {
     this.player1 = {};
     this.player2 = {};
     this.currentMove = 0;
-  }
+  };
 
   takeTurn(position) {
     this.currentMove++;
@@ -12,17 +12,17 @@ class Game {
       this.checkGame(this.player1);
     } else {
       var position = parseInt(event.target.name);
-      this.player2.positions.push(position);
-      this.checkGame(this.player2);
-    }
-  }
+        this.player2.positions.push(position);
+        this.checkGame(this.player2);
+    };
+  };
 
   makeNewPlayers() {
     currentGame.player1 = new Player('1', 'x');
     currentGame.player1.retrieveWinsFromStorage();
     currentGame.player2 = new Player('2', 'o');
     currentGame.player2.retrieveWinsFromStorage();
-  }
+  };
 
   checkGame(player) {
     updateCurrentPlayerDisplay();
@@ -44,19 +44,18 @@ class Game {
         player.wins++;
         player.saveToStorage();
         showPlayerWin(winner);
-        // currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else if (this.currentMove >= 9) {
         updateCurrentPlayerDisplay();
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else {
-      }
+      };
     };
-  }
+  };
 
   clearGame() {
     makeNewGame();
     showNewGame();
     refreshGameBoard();
-  }
-}
+  };
+};
