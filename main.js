@@ -55,6 +55,10 @@ function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
 }
 
+function showPlayerWin(winner) {
+  currentPlayerDisplay.innerText = `PLAYER ${winner} WINS!`
+}
+
 function showPlayer2IsUp() {
   currentPlayerDisplay.innerText = 'Player 2 Is Up';
 }

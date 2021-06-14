@@ -26,6 +26,7 @@ class Game {
 
   checkGame(player) {
     updateCurrentPlayerDisplay();
+    var winner = player.id;
     var winScenarios = [
       [1, 2, 3],
       [4, 5, 6],
@@ -42,7 +43,8 @@ class Game {
       && player.positions.includes(winScenarios[i][2])) {
         player.wins++;
         player.saveToStorage();
-        currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
+        showPlayerWin(winner);
+        // currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else if (this.currentMove >= 9) {
         updateCurrentPlayerDisplay();
