@@ -45,7 +45,7 @@ class Game {
         currentPlayerDisplay.innerText = `PLAYER ${player.id} WINS!`
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else if (this.currentMove >= 9) {
-        currentPlayerDisplay.innerText = `Draw!`;
+        updateCurrentPlayerDisplay();
         setTimeout(function(){currentGame.clearGame(); }, 3000);
       } else {
       }
@@ -54,7 +54,7 @@ class Game {
 
   clearGame() {
     makeNewGame();
-    currentPlayerDisplay.innerText = 'New Game, Player 1 is up!';
+    showNewGame();
     gameBoard.innerHTML = `
     <div class="a-row">
       <button type="button" class="a1" id="a1" name="1"></button>
@@ -73,5 +73,4 @@ class Game {
     </div>
     `;
   }
-
 }

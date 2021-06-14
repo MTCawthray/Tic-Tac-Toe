@@ -13,11 +13,17 @@ gameBoard.addEventListener('click', function(event) {
 
 //-------- Functions --------//
 function makeMove(event) {
-  event.target.disabled = true;
   var position = event.target;
   var positionName = parseInt(event.target.name);
   currentGame.takeTurn(positionName);
   showIcon(position);
+  disableButton(position);
+}
+
+function disableButton(position) {
+  var button = position.closest('button');
+  button.disabled = true;
+  console.log(button);
 }
 
 function showIcon(position) {
@@ -36,11 +42,29 @@ function makeNewGame() {
 }
 
 function updateCurrentPlayerDisplay() {
-  if (currentGame.currentMove % 2 !== 0) {
-    currentPlayerDisplay.innerText = 'Player 2 Is Up';
-  } else {
-    currentPlayerDisplay.innerText = 'Player 1 Is Up';
+  if (currentGame.currentMove >= 9) {
+  showDraw();
+  } else if (!(currentGame.currentMove % 2)) {
+    showPlayer1IsUp();
+  } else if (currentGame.currentMove % 2){
+    showPlayer2IsUp();
   }
+}
+
+function showDraw() {
+  currentPlayerDisplay.innerText = 'Its a DRAW';
+}
+
+function showPlayer2IsUp() {
+  currentPlayerDisplay.innerText = 'Player 2 Is Up';
+}
+
+function showPlayer1IsUp() {
+  currentPlayerDisplay.innerText = 'Player 1 Is Up';
+}
+
+function showNewGame() {
+  currentPlayerDisplay.innerText = 'New Game, Player 1 Is Up!';
 }
 
 function updateWinDisplay() {
