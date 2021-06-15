@@ -85,27 +85,27 @@ img {
   display: flex;
 }
 
-.a1,
-.a2,
-.a3 {
+.a-1,
+.a-2,
+.a-3 {
   border-top: 0;
 }
 
-.a3,
-.b3,
-.c3  {
+.a-3,
+.b-3,
+.c-3  {
   border-right: 0;
 }
 
-.c1,
-.c2,
-.c3 {
+.c-1,
+.c-2,
+.c-3 {
   border-bottom: 0;
 }
 
-.a1,
-.b1,
-.c1 {
+.a-1,
+.b-1,
+.c-1 {
   border-left: 0;
 }
 
