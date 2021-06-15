@@ -98,6 +98,12 @@ function updateCurrentPlayerDisplay() {
 };
 
 function updateWinDisplay() {
-  player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
-  player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  if (currentGame.player1.wins && currentGame.player2.wins) {
+    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  } else if (!currentGame.player1.wins && currentGame.player2.wins) {
+    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  } else if (currentGame.player1.wins && !currentGame.player2.wins) {
+    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+  }
 };
