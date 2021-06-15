@@ -55,6 +55,7 @@ function refreshGameBoard() {
 
 function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
+  togglePointer();
   setTimeout(function(){currentGame.clearGame(); }, 3000);
 };
 
