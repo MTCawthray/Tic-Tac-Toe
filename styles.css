@@ -156,6 +156,14 @@ img {
   border: none;
 }
 
+.show-celebration {
+  background-color: #e88e96;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 3px 3px 10px grey;
+}
+
 .center-section {
   width: 50%;
 }

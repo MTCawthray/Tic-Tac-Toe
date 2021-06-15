@@ -37,6 +37,7 @@ function makeNewGame() {
 };
 
 function refreshGameBoard() {
+  toggleCelebration();
   gameBoard.innerHTML = `
   <div class="a-row">
   <button type="button" class="a-1" id="a1" name="1"></button>
@@ -59,7 +60,8 @@ function refreshGameBoard() {
 function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
   togglePointer();
-  setTimeout(function(){currentGame.clearGame(); }, 3000);
+  toggleCelebration();
+  setTimeout(function(){currentGame.clearGame(); }, 3500);
 };
 
 function showIcon(position) {
@@ -84,7 +86,12 @@ function showPlayer2IsUp() {
 
 function showPlayerWin(winner) {
   currentPlayerDisplay.innerText = `PLAYER ${winner} WINS!`
+  toggleCelebration();
 };
+
+function toggleCelebration() {
+    currentPlayerDisplay.classList.toggle('show-celebration');
+}
 
 function togglePointer() {
   gameBoard.classList.toggle('pointer-disabled');
@@ -101,6 +108,12 @@ function updateCurrentPlayerDisplay() {
 };
 
 function updateWinDisplay() {
-  player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
-  player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  if (currentGame.player1.wins && currentGame.player2.wins) {
+    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  } else if (!currentGame.player1.wins && currentGame.player2.wins) {
+    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+  } else if (currentGame.player1.wins && !currentGame.player2.wins) {
+    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+  }
 };
