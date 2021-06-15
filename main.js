@@ -13,6 +13,13 @@ gameBoard.addEventListener('click', function(event) {
   makeMove(event)});
 
 
+function displayOWins() {
+  player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+};
+
+function displayXWins() {
+  player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+};
 
 function disableButton(position) {
   position.disabled = true;
@@ -107,11 +114,11 @@ function updateCurrentPlayerDisplay() {
 
 function updateWinDisplay() {
   if (currentGame.player1.wins && currentGame.player2.wins) {
-    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
-    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+    displayXWins();
+    displayOWins();
   } else if (!currentGame.player1.wins && currentGame.player2.wins) {
-    player2WinCount.innerText = `Wins: ${currentGame.player2.wins}`;
+    displayOWins();
   } else if (currentGame.player1.wins && !currentGame.player2.wins) {
-    player1WinCount.innerText = `Wins: ${currentGame.player1.wins}`;
+    displayXWins();
   }
 };
