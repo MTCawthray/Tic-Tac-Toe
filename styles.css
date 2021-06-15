@@ -39,7 +39,7 @@ main {
   border-top: 5px dotted #0b7fab;
 }
 
-section {
+aside, section {
   display: flex;
   flex-direction: column;
   align-items: center;
