@@ -57,6 +57,14 @@ function refreshGameBoard() {
   `;
 };
 
+function selectNextPlayer() {
+  if (currentGame.currentMove % 2) {
+    currentPlayerDisplay.innerText = 'Player 2 Is Up';
+  } else {
+    currentPlayerDisplay.innerText = 'Player 1 Is Up';
+  };
+};
+
 function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
   togglePointer();
@@ -76,14 +84,6 @@ function showNewGame() {
   currentPlayerDisplay.innerText = 'New Game, Player 1 Is Up!';
 };
 
-function showPlayer1IsUp() {
-  currentPlayerDisplay.innerText = 'Player 1 Is Up';
-};
-
-function showPlayer2IsUp() {
-  currentPlayerDisplay.innerText = 'Player 2 Is Up';
-};
-
 function showPlayerWin(winner) {
   currentPlayerDisplay.innerText = `PLAYER ${winner} WINS!`
   toggleCelebration();
@@ -100,10 +100,8 @@ function togglePointer() {
 function updateCurrentPlayerDisplay() {
   if (currentGame.currentMove >= 9) {
     showDraw();
-  } else if (!(currentGame.currentMove % 2)) {
-    showPlayer1IsUp();
-  } else if (currentGame.currentMove % 2){
-    showPlayer2IsUp();
+  } else {
+    selectNextPlayer();
   }
 };
 
