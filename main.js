@@ -34,6 +34,7 @@ function makeNewGame() {
 };
 
 function refreshGameBoard() {
+  toggleCelebration();
   gameBoard.innerHTML = `
   <div class="a-row">
   <button type="button" class="a1" id="a1" name="1"></button>
@@ -56,6 +57,7 @@ function refreshGameBoard() {
 function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
   togglePointer();
+  toggleCelebration();
   setTimeout(function(){currentGame.clearGame(); }, 3000);
 };
 
@@ -81,7 +83,12 @@ function showPlayer2IsUp() {
 
 function showPlayerWin(winner) {
   currentPlayerDisplay.innerText = `PLAYER ${winner} WINS!`
+  toggleCelebration();
 };
+
+function toggleCelebration() {
+    currentPlayerDisplay.classList.toggle('show-celebration');
+}
 
 function togglePointer() {
   gameBoard.classList.toggle('pointer-disabled');
