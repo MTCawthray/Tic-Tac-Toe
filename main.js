@@ -61,7 +61,7 @@ function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
   togglePointer();
   toggleCelebration();
-  setTimeout(function(){currentGame.clearGame(); }, 3000);
+  setTimeout(function(){currentGame.clearGame(); }, 3500);
 };
 
 function showIcon(position) {
