@@ -7,52 +7,52 @@
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@500&display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <div class="title-background">
-        <h1><span class="blue-text">Tic</span>-<span class="red-text">Tac</span>-<span class="orange-text">Toe</span></h1>
+        <h1>
+          <span class="blue-text">Tic</span>-<span class="red-text">Tac</span>-<span class="orange-text">Toe</span>
+        </h1>
       </div>
     </header>
     <main>
         <aside class="left-section">
           <h2 class="player-1">Player 1</h2>
           <article>
-            <img class="x-icon" id="xIcon" src="./assets/X-icon.png" alt="X" />
+            <img class="x-icon" src="./assets/X-icon.png" alt="X" />
           </article>
-          <h2 class="player-1-win-count" id="player1WinCount">Wins:0</h2>
+          <h2 class="player-1-win-count" id="player1WinCount">Wins: 0</h2>
         </aside>
         <section class="middle-section">
           <header class="winner-declaration">
             <h2 class="current-player" id="currentPlayer">player's turn</h2>
           </header>
-          <form class="game-board" id="gameBoard" onmouseup="event.preventDefault();">
+          <form class="game-board" id="gameBoard">
             <div class="a-row">
-              <button type="button" class="a-1" id="a1" name="1"></button>
-              <button type="button" class="a-2" id="a2" name="2"></button>
-              <button type="button" class="a-3" id="a3" name="3"></button>
+              <button type="button" class="a-1" name="1"></button>
+              <button type="button" class="a-2" name="2"></button>
+              <button type="button" class="a-3" name="3"></button>
             </div>
             <div class="b-row">
-              <button type="button" class="b-1" id="b1" name="4"></button>
-              <button type="button" class="b-2" id="b2" name="5"></button>
-              <button type="button" class="b-3" id="b3" name="6"></button>
+              <button type="button" class="b-1" name="4"></button>
+              <button type="button" class="b-2" name="5"></button>
+              <button type="button" class="b-3" name="6"></button>
             </div>
             <div class="c-row">
-              <button type="button" class="c-1" id="c1" name="7"></button>
-              <button type="button" class="c-2" id="c2" name="8"></button>
-              <button type="button" class="c-3" id="c3" name="9"></button>
+              <button type="button" class="c-1" name="7"></button>
+              <button type="button" class="c-2" name="8"></button>
+              <button type="button" class="c-3" name="9"></button>
             </div>
           </form>
         </section>
         <aside class="right-section">
           <h2 class="player-2">Player 2</h2>
           <article>
-            <img class="o-icon" id="oIcon" src="./assets/O-icon.png" alt="O" />
+            <img class="o-icon" src="./assets/O-icon.png" alt="O" />
           </article>
-          <h2 class="player-2-win-count" id="player2WinCount">Wins:0</h2>
+          <h2 class="player-2-win-count" id="player2WinCount">Wins: 0</h2>
         </aside>
     </main>
     <script type="text/javascript" src="player.js"></script>
