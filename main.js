@@ -27,7 +27,7 @@ function disableButton(position) {
 
 function makeMove(event) {
   event.preventDefault();
-  var position = event.target.closest("button");
+  var position = event.target.closest('button');
   if (position) {
     var positionName = parseInt(event.target.name);
     currentGame.takeTurn(positionName);
