@@ -27,12 +27,12 @@ function disableButton(position) {
 
 function makeMove(event) {
   event.preventDefault();
-  var position = event.target.closest("button");
+  var position = event.target.closest('button');
   if (position) {
-  var positionName = parseInt(event.target.name);
-  currentGame.takeTurn(positionName);
-  showIcon(position);
-  disableButton(position);
+    var positionName = parseInt(event.target.name);
+    currentGame.takeTurn(positionName);
+    showIcon(position);
+    disableButton(position);
   };
 };
 
@@ -46,22 +46,22 @@ function makeNewGame() {
 function refreshGameBoard() {
   toggleCelebration();
   gameBoard.innerHTML = `
-  <div class="a-row">
-    <button type="button" class="a-1" id="a1" name="1"></button>
-    <button type="button" class="a-2" id="a2" name="2"></button>
-    <button type="button" class="a-3" id="a3" name="3"></button>
-  </div>
-  <div class="b-row">
-    <button type="button" class="b-1" id="b1" name="4"></button>
-    <button type="button" class="b-2" id="b2" name="5"></button>
-    <button type="button" class="b-3" id="b3" name="6"></button>
-  </div>
-  <div class="c-row">
-    <button type="button" class="c-1" id="c1" name="7"></button>
-    <button type="button" class="c-2" id="c2" name="8"></button>
-    <button type="button" class="c-3" id="c3" name="9"></button>
-  </div>
-  `;
+    <div class="a-row">
+      <button type="button" class="a-1" id="a1" name="1"></button>
+      <button type="button" class="a-2" id="a2" name="2"></button>
+      <button type="button" class="a-3" id="a3" name="3"></button>
+    </div>
+    <div class="b-row">
+      <button type="button" class="b-1" id="b1" name="4"></button>
+      <button type="button" class="b-2" id="b2" name="5"></button>
+      <button type="button" class="b-3" id="b3" name="6"></button>
+    </div>
+    <div class="c-row">
+      <button type="button" class="c-1" id="c1" name="7"></button>
+      <button type="button" class="c-2" id="c2" name="8"></button>
+      <button type="button" class="c-3" id="c3" name="9"></button>
+    </div>
+    `;
 };
 
 function selectNextPlayer() {
@@ -76,7 +76,7 @@ function showDraw() {
   currentPlayerDisplay.innerText = 'Its a DRAW';
   togglePointer();
   toggleCelebration();
-  setTimeout(function(){currentGame.clearGame(); }, 3500);
+  setTimeout(function(){currentGame.clearGame(); }, 3200);
 };
 
 function showIcon(position) {
@@ -98,11 +98,11 @@ function showPlayerWin(winner) {
 
 function toggleCelebration() {
   currentPlayerDisplay.classList.toggle('show-celebration');
-}
+};
 
 function togglePointer() {
   gameBoard.classList.toggle('pointer-disabled');
-}
+};
 
 function updateCurrentPlayerDisplay() {
   if (currentGame.currentMove >= 9) {

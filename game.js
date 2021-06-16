@@ -26,7 +26,7 @@ class Game {
         togglePointer();
         player.saveToStorage();
         showPlayerWin(winner);
-        setTimeout(function(){currentGame.clearGame(); }, 3500);
+        setTimeout(function(){currentGame.clearGame(); }, 3200);
       };
     };
   };
